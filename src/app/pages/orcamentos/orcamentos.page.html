@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>orcamentos</ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">orcamentos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th class="descricao">Descrição</th>
+          <th>Quantidade</th>
+          <th>Valor de Compra</th>
+          <th>Custo Unitário</th>
+          <th>Margem de Lucro</th>
+          <th>Substituição Tributária</th>
+          <th>Diferencial de ICMS</th>
+          <th>Valor de Venda</th>
+          <th>Frete</th>
+          <th>Total de Venda</th>
+          <th>Fornecedor</th>
+          <th>Observação</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of items; let i = index">
+          <tr>
+            <td>
+              <ion-input [(ngModel)]="item.codigo"></ion-input>
+            </td>
+            <td class="descricao">
+              <ion-input class="descricao" [(ngModel)]="item.descricao"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.quantidade"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.valorCompra"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.custo"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.margem"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.substituicao"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.icms"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.valorVenda"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.frete"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.totalvalorVenda"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.fornecedor"></ion-input>
+            </td>
+            <td>
+              <ion-input [(ngModel)]="item.observacao"></ion-input>
+            </td>
+            <td>
+              <ion-button (click)="removeItem(i)">
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  
+    <ion-button (click)="addItem()">Adicionar Item</ion-button>
+  </ion-content>
+  
